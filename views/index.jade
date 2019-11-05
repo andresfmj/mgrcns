@@ -9,15 +9,23 @@ html(lang="en")
         link(rel="stylesheet", href="/static/styles.css")
     body
         div.container
-            .row
-                .col-xs
-                    form.mt-3(action="", method="post", enctype='multipart/form-data')
-                        .input-group.mb-3
-                            .input-group-prepend
-                                span.input-group-text#inputGroupFileAddon01 Subir
-                            .custom-file
-                                input.custom-file-input#inputGroupFile01(type='file')
-                                label.custom-file-label(for='inputGroupFile01') Selecciona un archivo
+            form.mt-3(action="/csv/execute", method="post", enctype='multipart/form-data')
+                .row
+                    .col-6
+                        .form-group
+                            label(for='inputFile') Seleccione un archivo
+                            input.form-control-file#inputFile(type='file', name='csvInputFile', accept='.csv')
+                .row
+                    .col-6
+                        .form-group.row
+                            label.col-sm-3.col-form-label(for='csvInput') Encabezados
+                            .col-sm-9
+                                input.form-control(type='text', name='headersInput' placeholder='delimitados por coma')
+                .row
+                    .col-6
+                        button.btn.btn-primary.btn-block(type='submit') Procesar
+
+
     
         script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
