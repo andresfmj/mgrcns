@@ -3,6 +3,8 @@ const morgan    = require('morgan')
 const path      = require('path')
 const app       = express()
 
+require('dotenv').config()
+
 const routes    = require('./routes/index')
 
 
