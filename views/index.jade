@@ -11,18 +11,22 @@ html(lang="en")
         div.container
             form.mt-3(action="/csv/execute", method="post", enctype='multipart/form-data')
                 .row
-                    .col-6
+                    .col-4
                         .form-group
                             label(for='inputFile') Seleccione un archivo
                             input.form-control-file#inputFile(type='file', name='csvInputFile', accept='.csv')
+                    .col-8
+                        .row
+                            .col-6
+                                .form-group
+                                    label(for='tblName') Tabla
+                                    input.form-control#tblName(type='text', name='tblName')
+                            .col-6
+                                .form-group
+                                    label(for='tblFields') Campos
+                                    input.form-control#tblFields(type='text', name='tblFields')
                 .row
-                    .col-6
-                        .form-group.row
-                            label.col-sm-3.col-form-label(for='csvInput') Encabezados
-                            .col-sm-9
-                                input.form-control(type='text', name='headersInput' placeholder='delimitados por coma')
-                .row
-                    .col-6
+                    .col-12
                         button.btn.btn-primary.btn-block(type='submit') Procesar
 
 
